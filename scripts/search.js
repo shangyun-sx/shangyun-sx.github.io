@@ -44,10 +44,14 @@ hexo.extend.helper.register('search_form', function (options = {}) {
     (text ? ` placeholder="${text}"` : '') +
     '>';
 
+  // onsubmit 里要先判断前缀是否已存在：提交后按浏览器「后退」回到本页时，
+  // bfcache 会连同被改写过的输入框内容一起恢复，此时框里已经是
+  // "site:host 关键词"。不加判断地再拼一次会变成
+  // "site:host site:host 关键词"，必应认为这是两个互相冲突的 site: 条件，结果为空。
   return (
     `<form action="https://www.bing.com/search" method="get" accept-charset="UTF-8" class="${className}"` +
     ` onsubmit="var el=this.querySelector('input[name=q]');` +
-    `el.value='site:${host} '+el.value;">` +
+    `if(el.value.indexOf('site:')!==0)el.value='site:${host} '+el.value;">` +
     input +
     submitButton +
     '</form>'
