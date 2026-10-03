@@ -1,0 +1,48 @@
+name: Build and Deploy
+
+# 只在 source 分支更新时触发。产物分支 main 不会被触发，因此不会出现循环部署。
+on:
+  push:
+    branches:
+      - source
+  workflow_dispatch:
+
+# 需要写权限，才能把构建产物推回 main 分支
+permissions:
+  contents: write
+
+# 同一时间只跑一个部署，新的推送取消排队中的旧任务
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npx hexo clean && npx hexo generate
+
+      - name: Publish to main
+        run: |
+          cd public
+          git init -b main
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Site updated: $(date -u '+%Y-%m-%d %H:%M:%S') UTC"
+          git push --force \
+            "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" \
+            main

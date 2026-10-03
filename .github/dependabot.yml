@@ -2,6 +2,9 @@ version: 2
 updates:
 - package-ecosystem: npm
   directory: "/"
+  # 必须指向 source 分支：默认分支 main 放的是构建产物，里面没有 package.json，
+  # 不指定的话 Dependabot 扫不到任何依赖，等于白配。
+  target-branch: "source"
   schedule:
     interval: daily
   open-pull-requests-limit: 20

@@ -14,11 +14,25 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://shangyun-sx.github.io
-permalink: :year/:month/:day/:title/
+permalink: :year/:month/:day/:abbrlink/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# abbrlink
+## Docs: https://github.com/ohroy/hexo-abbrlink
+## 用哈希替代 :title 生成 URL，避免中文标题变成一长串百分号编码
+abbrlink:
+  alg: crc32 # 支持 crc16 / crc32
+  rep: hex # 支持 dec / hex
+  drafts: false # 草稿不参与计算
+  auto_category:
+    enable: true
+    depth:
+  auto_title: false
+  auto_date: false
+  force: false
 
 # Directory
 source_dir: source
@@ -77,10 +91,24 @@ feed:
   order_by: -date
   icon: /favicon.png
 
+# Sitemap
+## Docs: https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: true
+  categories: true
+
 # Category & Tag
 default_category: uncategorized
+# 把中文分类/标签映射成英文 slug，避免产出 /categories/随笔/ 这类百分号编码 URL。
+# 注意：改名会让旧的分类/标签页 URL 失效。
 category_map:
+  随笔: essay
 tag_map:
+  随笔: essay
+  博客: blog
+  Hexo: hexo
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
@@ -93,7 +121,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+updated_option: 'date'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
