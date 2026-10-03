@@ -75,13 +75,16 @@
 | Disqus 评论 | `_config.landscape.yml` 里填 `disqus_shortname` |
 | Google Analytics | `_config.landscape.yml` 里填 `google_analytics` |
 
+### 搜索
+
+页头的搜索框使用**必应**，并通过 `site:` 语法把结果限制在本站内。
+
+> 实现说明：Hexo 7 内置的 `search_form` helper 硬编码把表单提交到 `google.com`，国内无法访问。
+> `scripts/search.js` 覆盖了这个 helper，把提交目标改成必应。改动原因写在那个文件的注释里。
+
 ### 没有的功能
 
-站内搜索、目录 TOC、数学公式、阅读时长统计。
-
-> ⚠️ **页头的搜索框当前不可用。**
-> Hexo 7 内置的 `search_form` helper 硬编码指向 `google.com`，而 Google 在国内无法访问，
-> 访客点击搜索会打不开页面。要修复可以把 helper 覆盖成必应搜索，或直接移除搜索框。
+目录 TOC、数学公式、阅读时长统计。
 
 ---
 
@@ -172,6 +175,8 @@ myblog/
 │   ├── _posts/                 # 已发布的文章（Markdown）
 │   ├── _drafts/                # 草稿，不会被发布
 │   └── favicon.png             # 站点图标
+├── scripts/
+│   └── search.js               # 覆盖内置 helper：把搜索框从 Google 换成必应
 ├── .github/
 │   ├── workflows/deploy.yml    # 自动构建发布
 │   └── dependabot.yml          # 依赖自动更新
