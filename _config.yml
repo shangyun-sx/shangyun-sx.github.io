@@ -4,7 +4,7 @@
 
 # Site
 title: Shangyun's Blog
-subtitle: '第一篇博客'
+subtitle: '' # 留空，页头 banner 上就不再显示副标题（模板里有 if 判断）
 description: 'shangyun-sx的个人博客'
 keywords: 'shangyun-sx, blog, hexo, github'
 author: Shangyun
