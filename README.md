@@ -195,11 +195,23 @@ updated: 2026-03-05 20:00:00     # 最后修改时间，改动文章后手动往
 front matter 里写 `cover:`，首页卡片、归档页和侧栏「最新文章」都会显示：
 
 ```yaml
-cover: https://example.com/img.jpg   # 外链，或 /img/xxx.jpg（放 source/img/ 下）
+cover: /img/cover.jpg                # 放 source/img/ 下，推荐
+# cover: https://example.com/img.jpg # 外链也能用，但先看下面
 ```
 
-不写就没有封面，卡片显示纯文字。目前 3 篇文章 + 1 篇草稿共用同一张 unsplash 图。
+不写就没有封面，卡片显示纯文字。
+
+> ⚠️ **封面图请放本地，不要用外链。** 4 篇文章原本用的是 unsplash 外链，实测同一张 260 KB 的图
+> 要 11～90 秒才拿得到（连测三次：11.4s / 62.1s / 90s 超时放弃），浏览器早就放弃了，
+> 访客看到的是首页卡片、侧栏缩略图、归档页大面积裂图。
+> 现已把图下载到 `source/img/cover.jpg`，改成 `/img/cover.jpg` 引用。
+> 加新封面时同理：图先下到 `source/img/`，别直接贴外链。
+
 `_config.butterfly.yml` 的 `cover.default_cover` 可以配「没写 cover 时用的默认图」。
+
+技术细节：Butterfly 判断 `cover` 是不是图片（`scripts/filters/random_cover.js` 的 `isImage`），
+远程 URL 和**以 `.jpg`/`.png` 等图片扩展名结尾的本地路径**都认，认出来才渲染成 `<img>`，
+否则会当成背景色生成一句无效 CSS。
 
 ### ⚠️ 新增中文标签或分类时
 
