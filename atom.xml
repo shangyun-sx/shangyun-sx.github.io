@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>Shangyun</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <icon>https://shangyun-sx.github.io/favicon.png</icon>
+  <id>https://shangyun-sx.github.io/</id>
+  <link href="https://shangyun-sx.github.io/" rel="alternate"/>
+  <link href="https://shangyun-sx.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Shangyun</rights>
+  <subtitle>shangyun-sx的个人博客</subtitle>
+  <title>Shangyun's Blog</title>
+  <updated>2026-10-03T14:24:36.000Z</updated>
+  <entry>
+    <author>
+      <name>Shangyun</name>
+    </author>
+    <category term="随笔" scheme="https://shangyun-sx.github.io/categories/essay/"/>
+    <category term="随笔" scheme="https://shangyun-sx.github.io/tags/essay/"/>
+    <category term="博客" scheme="https://shangyun-sx.github.io/tags/blog/"/>
+    <category term="Hexo" scheme="https://shangyun-sx.github.io/tags/hexo/"/>
+    <content>
+      <![CDATA[<p>没什么，只是想让你知道…</p>]]>
+    </content>
+    <id>https://shangyun-sx.github.io/2025/10/30/a850deb/</id>
+    <link href="https://shangyun-sx.github.io/2025/10/30/a850deb/"/>
+    <published>2025-10-30T15:58:04.000Z</published>
+    <summary>
+      <![CDATA[<p>没什么，只是想让你知道…</p>]]>
+    </summary>
+    <title>因为学校开运动会所以没事干就写一下</title>
+    <updated>2026-10-03T14:24:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Shangyun</name>
+    </author>
+    <category term="随笔" scheme="https://shangyun-sx.github.io/categories/essay/"/>
+    <category term="随笔" scheme="https://shangyun-sx.github.io/tags/essay/"/>
+    <category term="博客" scheme="https://shangyun-sx.github.io/tags/blog/"/>
+    <category term="Hexo" scheme="https://shangyun-sx.github.io/tags/hexo/"/>
+    <content>
+      <![CDATA[<p> 独上高楼，望尽天涯路</p><p>近日因事心烦，故而寄情于手机以慰心灵，于B站见管人痴沉迷Vtuber之流，嬉笑怒骂，甚是可爱。盖其容貌掩于屏幕之下，故喜怒哀乐皆发于心也。嘻，今人以皮套见人反见其诚，面谈则心念无所知，今时之人尚且如此，更何况未来？然屏幕之下，可得自然，亦有喜乐，以昔人之刀痕求今时之剑，岂不谬误？问后人当如何，二十四画曰：仅天知。</p>]]>
+    </content>
+    <id>https://shangyun-sx.github.io/2025/10/03/d770d4b1/</id>
+    <link href="https://shangyun-sx.github.io/2025/10/03/d770d4b1/"/>
+    <published>2025-10-03T10:28:24.000Z</published>
+    <summary>
+      <![CDATA[<p>]]>
+    </summary>
+    <title>国庆节放假有感</title>
+    <updated>2026-10-03T14:24:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Shangyun</name>
+    </author>
+    <category term="随笔" scheme="https://shangyun-sx.github.io/categories/essay/"/>
+    <category term="随笔" scheme="https://shangyun-sx.github.io/tags/essay/"/>
+    <category term="博客" scheme="https://shangyun-sx.github.io/tags/blog/"/>
+    <category term="Hexo" scheme="https://shangyun-sx.github.io/tags/hexo/"/>
+    <content>
+      <![CDATA[<h1 id="「-你好，世界-」"><a href="#「-你好，世界-」" class="headerlink" title="「 你好，世界 」"></a>「 你好，世界 」</h1><p>终于，在无数次“想要一个自己的博客”的念头闪过之后，今天，我按下了那个关键的 <code>hexo deploy</code> 命令。</p><p>看着命令行窗口里飞速滚动的代码，我知道，这片属于我的小小天地，正式在互联网的世界里 <strong>「启程」了</strong>。</p><hr><h2 id="🛠️-为什么搭建这个博客？"><a href="#🛠️-为什么搭建这个博客？" class="headerlink" title="🛠️ 为什么搭建这个博客？"></a>🛠️ 为什么搭建这个博客？</h2><p>我搭建这个博客，主要出于三个目的：</p><ol><li><strong>记录与分享</strong>：记录下学习、工作和生活中的思考与收获。如果能帮到偶然路过这里的你，那将是我的荣幸。</li><li><strong>沉淀知识</strong>：把碎片化的信息整理成体系化的笔记。好记性不如烂笔头，<code>Ctrl + S</code> 是最好的记忆延伸。</li><li><strong>练习表达</strong>：用写作倒逼自己更好地理解和消化知识。“教”是最好的“学”。</li></ol><h2 id="🌐-技术选型：为什么是-Hexo？"><a href="#🌐-技术选型：为什么是-Hexo？" class="headerlink" title="🌐 技术选型：为什么是 Hexo？"></a>🌐 技术选型：为什么是 Hexo？</h2><p>在众多博客框架中，我最终选择了 <strong>Hexo</strong>，原因很简单：</p><ul><li><strong>极速生成</strong>：基于 Node.js，生成静态页面的速度快得惊人。</li><li><strong>简单易用</strong>：一条命令就能创建文章、启动服务器、部署上线。</li><li><strong>高度自由</strong>：有海量的主题和插件，可以随心所欲地定制。</li><li><strong>完全免费</strong>：借助 <strong>GitHub Pages</strong> 服务，可以零成本地托管整个博客。</li></ul><pre><code class="language-bash"># 这就是核心的部署命令，简洁而强大$ hexo clean &amp;&amp; hexo g -d</code></pre>]]>
+    </content>
+    <id>https://shangyun-sx.github.io/2023/10/27/7a3b7b46/</id>
+    <link href="https://shangyun-sx.github.io/2023/10/27/7a3b7b46/"/>
+    <published>2023-10-27T20:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="「-你好，世界-」"><a href="#「-你好，世界-」" class="headerlink" title="「 你好，世界 」"></a>「 你好，世界 」</h1><p>终于，在无数次“想要一个自己的博客”的念头闪过之后，今天，我按下了那个关键的]]>
+    </summary>
+    <title>启程：我的博客诞生记</title>
+    <updated>2026-10-03T14:24:36.000Z</updated>
+  </entry>
+</feed>
