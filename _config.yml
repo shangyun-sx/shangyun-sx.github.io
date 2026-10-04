@@ -4,7 +4,7 @@
 
 # Site
 title: Shangyun's Blog
-subtitle: '' # 留空，页头 banner 上就不再显示副标题（模板里有 if 判断）
+subtitle: '' # 留空。Butterfly 首页 banner 上的副标题由 _config.butterfly.yml 的 subtitle.enable 单独控制
 description: 'shangyun-sx的个人博客'
 keywords: 'shangyun-sx, blog, hexo, github'
 author: Shangyun
@@ -99,6 +99,18 @@ sitemap:
   tags: true
   categories: true
 
+# Search
+## Docs: https://github.com/next-theme/hexo-generator-searchdb
+## 构建时产出 /search.xml，访客在浏览器里搜索，不依赖 Google/必应等外部服务。
+## 注意：_config.butterfly.yml 里 search.use 必须为 local_search，它读的就是下面的 path。
+## 改 path 的话两边要一起改，否则搜索框会 404。
+search:
+  path: search.xml
+  field: post
+  content: true
+  # html 保留正文里的标签，配合 _config.butterfly.yml 的 local_search.unescape: true 显示效果更好
+  format: html
+
 # Category & Tag
 default_category: uncategorized
 # 把中文分类/标签映射成英文 slug，避免产出 /categories/随笔/ 这类百分号编码 URL。
@@ -121,7 +133,19 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'date'
+##
+## 这里用 'empty'，配合「在 front matter 里手写 updated:」来标注真实的修改时间。
+##   - 'mtime'：GitHub Actions 每次构建都是全新 clone，会把所有文章的更新时间
+##              刷成检出时间，全部变成构建那一刻；
+##   - 'date' ：更新时间恒等于发布时间，页面上就是一句废话；
+##   - 'empty'：不手写 updated: 的文章干脆不带这个字段 —— 由作者决定有没有。
+## front matter 里手写的 updated: 优先级高于本项（hexo/dist/plugins/processor/post.js），
+## 所以想标真实修改时间，直接在文章里写 updated: 即可，这里保持 'empty' 就行。
+##
+## ⚠️ 注意 Butterfly 的 post_meta.post.date_type 为 both 时会「无条件」渲染「更新于」，
+##    而 Hexo 的 date helper 对空值会 fallback 到当前时间。
+##    因此本站每篇文章（含草稿）都必须有 updated:，新建文章的脚手架已自动带上。
+updated_option: 'empty'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -137,7 +161,9 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: butterfly
+## 主题配置见 _config.butterfly.yml（与 node_modules/hexo-theme-butterfly/_config.yml 深度合并）
+## 注意：不要把主题源码拷进 themes/ 目录 —— 那样会盖掉 node_modules 里这份，导致 npm 升级失效。
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
